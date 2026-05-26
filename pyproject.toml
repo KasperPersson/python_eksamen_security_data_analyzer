@@ -1,0 +1,16 @@
+[tool.pytest.ini_options]
+pythonpath = ["backend"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.pyright]
+pythonVersion = "3.13"
+venvPath = "."
+venv = ".venv"
+include = ["backend", "tests"]
+extraPaths = ["backend"]

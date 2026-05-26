@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+data/logs.csv
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.claude/
+notebooks/.ipynb_checkpoints/
