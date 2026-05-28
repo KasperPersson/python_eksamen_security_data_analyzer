@@ -7,3 +7,4 @@ data/logs.csv
 .ruff_cache/
 *.egg-info/
 notebooks/.ipynb_checkpoints/
+.DS_Store
