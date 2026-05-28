@@ -6,9 +6,11 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.title("Security Data Analyzer")
+st.title(":rainbow[Security Data Analyzer]")
 st.write(
-    "A cybersecurity log analysis tool. "
-    "Navigate using the sidebar to explore threat patterns in the dataset."
+    "A cybersecurity application that lets you explore ~6 million network log entries "
+    "from a real dataset. "
+    "Use it to analyze threat patterns, suspicious IP's "
+    "Or use the AI function to generate an assesment and chat about the data "
 )
 st.info("Select a page from the sidebar to begin.")
