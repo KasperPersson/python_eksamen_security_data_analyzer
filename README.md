@@ -1,7 +1,11 @@
 # Security Data Analyzer
 
-A cybersecurity log analysis tool with AI-powered explanations.  
-Analyzes ~6 million network traffic log entries to detect patterns, anomalies, and potential attack behavior.
+A cybersecurity log analysis dashboard with AI explanations.
+
+Built around a dataset of approximately 6 million network traffic log entries.
+The application provides visualizations, AI explanations, and a conversational interface for exploring network activity.
+
+**The project was developed and tested with Python 3.13**
 
 ## Quick Start
 
@@ -14,11 +18,11 @@ cd python_eksamen_security_data_analyzer
 cp .env.example .env
 # Edit .env and set ANTHROPIC_API_KEY
 
-# 3. Download the dataset (~874 MB, not included in the repo)
-# Source: https://www.kaggle.com/datasets/aryan208/cybersecurity-threat-detection-logs
-# Download and place the CSV at: data/logs.csv
+# 3. Download the dataset. See the Dataset section below.
 
 # 4. Start
+
+# Make sure Docker Desktop is running
 docker compose up --build
 ```
 
@@ -34,18 +38,17 @@ docker compose down
 
 ## Dataset
 
-Download from Kaggle and rename the file to `logs.csv`, then place it at `data/logs.csv`. The `data/` folder already exists in the repo (kept via `.gitkeep`) - just drop the CSV in.
+The dataset is not included in this repository.
 
-| Field | Description |
-|---|---|
-| `timestamp` | Time of the log entry |
-| `source_ip` / `dest_ip` | Source and destination IP addresses |
-| `protocol` | Network protocol (TCP, UDP, HTTP, ...) |
-| `action` | Firewall action: `allowed` or `blocked` |
-| `threat_label` | Classification: `benign`, `suspicious`, or `malicious` |
-| `bytes_transferred` | Bytes transferred in the session |
-| `user_agent` | User agent string (curl, Nmap, SQLMap, ...) |
-| `request_path` | Requested URI path |
+1. Create a free Kaggle account and log in
+2. Download the dataset
+3. Rename the CSV file to `logs.csv`
+4. Place it in `data/logs.csv`
+
+The `data/` folder is kept in the repository using a `.gitkeep` file
+
+Dataset source:
+https://www.kaggle.com/datasets/aryan208/cybersecurity-threat-detection-logs
 
 ## Environment Variables
 
@@ -66,13 +69,24 @@ Copy `.env.example` to `.env` and set `ANTHROPIC_API_KEY` - Docker Compose picks
 - **AI Assessment** - one-click security assessment of the full dataset
 - **Chat** - ask follow-up questions about the logs in a conversational interface
 
+## Architecture
+
+The application consists of:
+
+- A **Streamlit** frontend
+- A **FastAPI** backend
+- A **CSV** dataset
+- **Claude** for AI assessment and chat features
+
+The frontend communicates with the backend through a REST API.
+
 ## Tech Stack
 
 | Layer | Technology |
 |---|---|
 | Frontend | Streamlit |
 | Backend | FastAPI |
-| Data processing | Pandas, Numpy |
+| Data processing | Pandas, NumPy |
 | Visualization | Matplotlib |
 | LLM | Anthropic Claude (`claude-sonnet-4-6`) |
 | Containerization | Docker Compose |
@@ -82,10 +96,16 @@ Copy `.env.example` to `.env` and set `ANTHROPIC_API_KEY` - Docker Compose picks
 ```bash
 # Make sure .env is set up with your ANTHROPIC_API_KEY (see Quick Start step 2)
 
-# Create and activate virtual environment
+# Create and activate virtual environment (Python 3.13 recommended)
+
 python -m venv .venv
-.venv\Scripts\activate  # Windows
-# source .venv/bin/activate  # Mac/Linux
+
+# Windows
+.venv\Scripts\activate
+
+# Mac/Linux
+
+source .venv/bin/activate
 
 # Install dependencies
 pip install -r backend/requirements.txt
@@ -100,14 +120,14 @@ cd frontend
 streamlit run app.py
 ```
 
-## Tests
+## Development / Tests
+
+Install dependencies:
 
 ```bash
-pip install -r backend/requirements.txt
-pip install pytest httpx
+pip install -r requirements-dev.txt
+```
+Run tests:
+```bash
 pytest tests/ -v
 ```
-
-## Exploratory Data Analysis
-
-See [`notebooks/eda.ipynb`](notebooks/eda.ipynb) for an interactive walkthrough of the dataset using Pandas, Numpy, and Matplotlib.
