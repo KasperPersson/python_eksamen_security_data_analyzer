@@ -66,7 +66,7 @@ Copy `.env.example` to `.env` and set `ANTHROPIC_API_KEY` - Docker Compose picks
 - **Top IPs** - bar chart of the most active source IPs
 - **Attack Distribution** - pie chart of benign vs. suspicious vs. malicious traffic
 - **Timeline** - network activity over time, aggregated by hour or day
-- **AI Assessment** - one-click security assessment of the full dataset
+- **AI Explaim** - one-click security assessment of the full dataset
 - **Chat** - ask follow-up questions about the logs in a conversational interface
 
 ## Architecture
