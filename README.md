@@ -29,7 +29,7 @@ docker compose up --build
 | Backend API docs | http://localhost:8000/docs |
 
 ```bash
-# Stop
+# Stop the application
 docker compose down
 ```
 
