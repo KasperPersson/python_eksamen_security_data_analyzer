@@ -8,3 +8,4 @@ data/logs.csv
 *.egg-info/
 notebooks/.ipynb_checkpoints/
 .DS_Store
+notebooks/eda.ipynb
