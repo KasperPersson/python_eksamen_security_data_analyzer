@@ -10,19 +10,16 @@ The application provides visualizations, AI explanations, and a conversational i
 ## Quick Start
 
 ```bash
-# 1. Clone the repo
+# 1. Clone the repository
 git clone https://github.com/KasperPersson/python_eksamen_security_data_analyzer.git
 cd python_eksamen_security_data_analyzer
 
 # 2. Add your API key
 cp .env.example .env
-# Edit .env and set ANTHROPIC_API_KEY
 
-# 3. Download the dataset. See the Dataset section below.
+# 3. Download the dataset. See the [Dataset](#dataset) section below.
 
-# 4. Start
-
-# Make sure Docker Desktop is running
+# 4. Make sure Docker Desktop is running, then:
 docker compose up --build
 ```
 
@@ -45,7 +42,7 @@ The dataset is not included in this repository.
 3. Rename the CSV file to `logs.csv`
 4. Place it in `data/logs.csv`
 
-The `data/` folder is kept in the repository using a `.gitkeep` file
+The `data/` folder is kept in the repository using a `.gitkeep` file.
 
 Dataset source:
 https://www.kaggle.com/datasets/aryan208/cybersecurity-threat-detection-logs
@@ -54,11 +51,12 @@ https://www.kaggle.com/datasets/aryan208/cybersecurity-threat-detection-logs
 
 | Variable | Set in | Description |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | `.env` | Powers the AI assessment and chat features |
+| `ANTHROPIC_API_KEY` | `.env` | Required for the AI Assessment and Chat features |
 | `DATA_PATH` | `docker-compose.yml` | Path to the CSV inside the backend container (`/app/data/logs.csv`). Locally, the code default `../data/logs.csv` is used automatically - do not add to `.env` |
 | `BACKEND_URL` | `docker-compose.yml` | Backend URL seen by the frontend (`http://backend:8000`). Locally defaults to `http://localhost:8000` - do not add to `.env` |
 
 Copy `.env.example` to `.env` and set `ANTHROPIC_API_KEY` - Docker Compose picks it up automatically.
+> Note: The dashboard can be used without an Anthropic API key. The API key is only required for the AI Assessment and Chat features.
 
 ## Features
 
@@ -66,7 +64,7 @@ Copy `.env.example` to `.env` and set `ANTHROPIC_API_KEY` - Docker Compose picks
 - **Top IPs** - bar chart of the most active source IPs
 - **Attack Distribution** - pie chart of benign vs. suspicious vs. malicious traffic
 - **Timeline** - network activity over time, aggregated by hour or day
-- **AI Explaim** - one-click security assessment of the full dataset
+- **AI Explain** - one-click security assessment of the full dataset
 - **Chat** - ask follow-up questions about the logs in a conversational interface
 
 ## Architecture
@@ -104,7 +102,6 @@ python -m venv .venv
 .venv\Scripts\activate
 
 # Mac/Linux
-
 source .venv/bin/activate
 
 # Install dependencies
