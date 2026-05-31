@@ -126,6 +126,7 @@ Install dependencies:
 
 ```bash
 pip install -r requirements-dev.txt
+pre-commit install
 ```
 Run tests:
 ```bash
