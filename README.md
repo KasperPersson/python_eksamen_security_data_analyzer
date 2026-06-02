@@ -129,3 +129,12 @@ Run tests:
 ```bash
 pytest tests/ -v
 ```
+
+Run manually:
+```bash
+ruff check .
+ruff format .
+pyright
+```
+
+> Note: ruff and pyright run automatically via pre-commit on every commit.

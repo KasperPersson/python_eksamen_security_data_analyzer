@@ -6,6 +6,4 @@ data/logs.csv
 .pytest_cache/
 .ruff_cache/
 *.egg-info/
-notebooks/.ipynb_checkpoints/
 .DS_Store
-notebooks/eda.ipynb
