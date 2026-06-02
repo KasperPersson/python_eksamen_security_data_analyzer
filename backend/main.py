@@ -144,7 +144,7 @@ def attack_distribution():
     result = []
     for label, group in data.groupby("threat_label", observed=True)[
         "bytes_transferred"
-    ]:  # noqa: E501
+    ]:
         arr = group.to_numpy()
         result.append(
             {
